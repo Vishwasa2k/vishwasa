@@ -23,6 +23,7 @@ body {
   margin: auto;
 }
 
+/* HEADER */
 header {
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.075);
@@ -97,11 +98,13 @@ header nav a figure img {
   }
 }
 
+/* CONTENT */
 section#content {
   width: 100%;
   background-color: #fff;
 }
 
+/* GALLERY */
 section.gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -115,7 +118,7 @@ section.gallery figure {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4; /* keeps proportions consistent */
 }
 
 section.gallery figure img {
@@ -123,30 +126,15 @@ section.gallery figure img {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: none;
+  filter: none; /* full color */
   transition: transform 0.3s ease;
 }
 
 section.gallery figure img:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-@media screen and (min-width: 480px) {
-  section.gallery figure {
-    width: 50%;
-  }
-
-  section.gallery figure:last-child {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  section.gallery figure {
-    width: 33.33%;
-  }
-}
-
+/* FOOTER */
 footer {
   width: 100%;
   padding: 2em 1em;
