@@ -166,28 +166,30 @@
 
         /* Gallery Styles */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 0;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px; /* spacing between photos */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        .gallery figure {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            cursor: pointer;
-            background: #f8f9fa;
-        }
+.gallery figure {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4; /* keeps all images proportional */
+    cursor: pointer;
+    background: #f8f9fa;
+}
 
-        .gallery figure img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            filter: grayscale(20%) contrast(1.1);
+.gallery figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: none; /* removes grayscale */
+}
+
         }
 
         .gallery figure:hover img {
