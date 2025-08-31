@@ -10,43 +10,87 @@
   <body>
     <header>
       <nav>
-        <a href="index.html" title="Home" class="on">Home</a>
-        <a href="aboutme.html" title="About Me">About Me</a>
-        <a href="index.html">
-          <figure><img src="images/profile.jpg" alt="Vishwas Aravind Portrait" /></figure>
-        </a>
-        <a href="portfolio.html" title="Portfolio">Portfolio</a>
-        <a href="contact.html" title="Contact">Contact</a>
+        <a href="index.html" title="Home" class="nav-link on">Stills</a>
+        <a href="aboutme.html" title="About Me" class="nav-link">About</a>
+        <a href="portfolio.html" title="Portfolio" class="nav-link">Projects</a>
+        <a href="contact.html" title="Contact" class="nav-link">Contact</a>
       </nav>
+      
+      <div class="header-info">
+        <div class="profile-section">
+          <img src="images/profile.jpg" alt="Vishwas Aravind" class="profile-image" />
+          <div class="profile-text">
+            <h1>Vishwas Aravind</h1>
+            <p>Photographer & Visual Storyteller</p>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <section id="content">
-      <section class="gallery">
-        <figure><img src="images/CAR_4281.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4313.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4321.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4368.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4383.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4510.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4511.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4531.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4537.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4563.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        <figure><img src="images/CAR_4602.jpg" alt="Photography by Vishwas Aravind" /></figure>
-        
+    <main>
+      <section class="stills-gallery">
+        <div class="image-item portrait">
+          <img src="images/still-1.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item landscape">
+          <img src="images/still-2.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item square">
+          <img src="images/still-3.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item portrait">
+          <img src="images/still-4.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item landscape">
+          <img src="images/still-5.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item square">
+          <img src="images/still-6.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item portrait">
+          <img src="images/still-7.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item landscape">
+          <img src="images/still-8.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item square">
+          <img src="images/still-9.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item portrait">
+          <img src="images/still-10.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item landscape">
+          <img src="images/still-11.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
+        <div class="image-item square">
+          <img src="images/still-12.jpg" alt="Photography by Vishwas Aravind" />
+        </div>
       </section>
-    </section>
+    </main>
 
     <footer>
-      <nav>
-        <a href="https://facebook.com"><span class="icon-social-facebook"></span></a>
-        <a href="https://twitter.com"><span class="icon-twitter"></span></a>
-        <a href="index.html">Vishwas Aravind</a>
-        <a href="https://instagram.com/lordfarquaadsmom"><span class="icon-instagram-2"></span></a>
-        <a href="mailto:vishwasa07@gmail.com"><span class="icon-mail-2"></span></a>
-      </nav>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://instagram.com/lordfarquaadsmom" target="_blank">Instagram</a>
+          <a href="mailto:vishwasa07@gmail.com">Email</a>
+          <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+        <p>&copy; 2024 Vishwas Aravind. All rights reserved.</p>
+      </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-nav">
+          <button class="lightbox-prev">‹</button>
+          <button class="lightbox-next">›</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
   </body>
 </html>
