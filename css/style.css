@@ -211,27 +211,25 @@ section.aboutme p {
   }
 }
 
-/* PORTFOLIO */
-section.portfolio {
+/* PORTFOLIO ALBUMS */
+section.portfolio-albums {
+  columns: 1;
+  column-gap: 0;
   padding: 0;
   width: 100%;
 }
 
-section.portfolio .project {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 4em;
-  align-items: center;
-}
-
-section.portfolio .project figure {
-  width: 100%;
-  max-width: 600px;
+section.portfolio-albums .album {
   margin: 0;
+  padding: 0;
+  display: block;
+  break-inside: avoid;
   overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
 
-section.portfolio .project figure img {
+section.portfolio-albums .album img {
   width: 100%;
   height: auto;
   display: block;
@@ -239,92 +237,60 @@ section.portfolio .project figure img {
   transition: all 0.5s ease;
 }
 
-section.portfolio .project:hover figure img {
+section.portfolio-albums .album:hover img {
   filter: grayscale(0%);
   transform: scale(1.05);
 }
 
-section.portfolio .project .info {
-  padding: 2em;
-  text-align: center;
-  max-width: 600px;
-}
-
-section.portfolio .project .info h3 {
-  font-size: 1.5em;
-  font-weight: 700;
-  margin-bottom: 1em;
-  color: #333;
-  text-transform: uppercase;
-}
-
-section.portfolio .project .info p {
-  font-size: 1em;
-  line-height: 1.6;
-  color: #666;
-  margin-bottom: 1.5em;
-}
-
-section.portfolio .project .info nav {
+section.portfolio-albums .album .album-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center;
-  gap: 1em;
-}
-
-section.portfolio .project .info nav a {
-  display: inline-flex;
   align-items: center;
-  gap: 0.5em;
-  padding: 0.75em 1.5em;
-  background-color: #f8f8f8;
-  color: #333;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.9em;
-  border-radius: 25px;
+  justify-content: center;
+  opacity: 0;
   transition: all 0.3s ease;
 }
 
-section.portfolio .project .info nav a:hover {
-  background-color: #00aced;
+section.portfolio-albums .album:hover .album-overlay {
+  opacity: 1;
+}
+
+section.portfolio-albums .album .album-overlay h3 {
   color: white;
-  transform: translateY(-2px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  padding: 0 1em;
+  letter-spacing: 0.5px;
+  text-transform: none;
 }
 
-section.portfolio .project .info nav a.facebook:hover {
-  background-color: #3b5998;
-}
-
-section.portfolio .project .info nav a.twitter:hover {
-  background-color: #1da1f2;
+/* Responsive columns for albums */
+@media screen and (min-width: 480px) {
+  section.portfolio-albums {
+    columns: 2;
+    column-gap: 0;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  section.portfolio .project {
-    flex-direction: row;
-    align-items: flex-start;
+  section.portfolio-albums {
+    columns: 3;
+    column-gap: 0;
   }
+}
 
-  section.portfolio .project:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  section.portfolio .project figure,
-  section.portfolio .project .info {
-    flex: 1;
-    max-width: none;
-  }
-
-  section.portfolio .project .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-  }
-
-  section.portfolio .project:nth-child(even) .info {
-    text-align: right;
+@media screen and (min-width: 1024px) {
+  section.portfolio-albums {
+    columns: 4;
+    column-gap: 0;
   }
 }
 
