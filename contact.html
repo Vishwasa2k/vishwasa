@@ -10,44 +10,52 @@
   <body>
     <header>
       <nav>
-        <a href="index.html" title="Home">Home</a>
-        <a href="aboutme.html" title="About Me">About Me</a>
-        <a href="index.html">
-          <figure><img src="images/profile.jpg" alt="Vishwas Aravind Portrait" /></figure>
-        </a>
-        <a href="portfolio.html" title="Portfolio">Portfolio</a>
-        <a href="contact.html" title="Contact" class="on">Contact</a>
+        <a href="index.html" title="Home" class="nav-link">Stills</a>
+        <a href="aboutme.html" title="About Me" class="nav-link">About</a>
+        <a href="portfolio.html" title="Portfolio" class="nav-link">Projects</a>
+        <a href="contact.html" title="Contact" class="nav-link on">Contact</a>
       </nav>
+      
+      <div class="header-info">
+        <div class="profile-section">
+          <img src="images/profile.jpg" alt="Vishwas Aravind" class="profile-image" />
+          <div class="profile-text">
+            <h1>Vishwas Aravind</h1>
+            <p>Photographer & Visual Storyteller</p>
+          </div>
+        </div>
+      </div>
     </header>
-    
-    <section id="content">
-      <section class="contact">
+
+    <main>
+      <section class="contact-content">
         <p>I'm always interested in collaborating on creative projects, discussing photography, or simply connecting with fellow visual storytellers. Whether you're looking for commissioned work, prints, or just want to share your thoughts on photography, I'd love to hear from you.</p>
         
-        <ul>
-          <li><span class="icon-mail-2"></span><span class="text">vishwasa07<span class="icon-at">@</span>gmail.com</span></li>
-          <li><span class="icon-telephone"></span><span class="text">Available upon request</span></li>
+        <ul class="contact-info">
+          <li><span class="icon-mail-2"></span><span>vishwasa07@gmail.com</span></li>
+          <li><span class="icon-telephone"></span><span>Available upon request</span></li>
         </ul>
         
-        <form action="#" method="POST">
+        <form class="contact-form" action="#" method="POST">
           <input type="text" placeholder="Your Name" required>
           <input type="email" placeholder="Email Address" required>
           <textarea cols="30" rows="10" placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
         </form>
       </section>
-    </section>
-    
+    </main>
+
     <footer>
-      <nav>
-        <a href="https://facebook.com"><span class="icon-social-facebook"></span></a>
-        <a href="https://twitter.com"><span class="icon-twitter"></span></a>
-        <a href="index.html">Vishwas Aravind</a>
-        <a href="https://instagram.com/lordfarquaadsmom"><span class="icon-instagram-2"></span></a>
-        <a href="mailto:vishwasa07@gmail.com"><span class="icon-mail-2"></span></a>
-      </nav>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://instagram.com/lordfarquaadsmom" target="_blank">Instagram</a>
+          <a href="mailto:vishwasa07@gmail.com">Email</a>
+          <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+        <p>&copy; 2024 Vishwas Aravind. All rights reserved.</p>
+      </div>
     </footer>
-    
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="js/main.js"></script>
   </body>
 </html>
