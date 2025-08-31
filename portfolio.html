@@ -21,44 +21,61 @@
     </header>
     
     <section id="content">
-      <section class="portfolio">
-        <div class="project">
-          <figure><img src="images/project1.jpg" alt="Urban Geometry Series" /></figure>
-          <div class="info">
+      <section class="portfolio-albums">
+        <figure class="album" onclick="openAlbum('urban-geometry')">
+          <img src="images/album-urban.jpg" alt="Urban Geometry Album Cover" />
+          <div class="album-overlay">
             <h3>Urban Geometry</h3>
-            <p>A collection exploring the mathematical beauty hidden within city architecture. Each frame captures the intersection of human design and natural light, revealing patterns that speak to our inherent need for order and symmetry.</p>
-            <nav>
-              <a href="#" class="facebook"><span class="icon-social-facebook"></span>Share</a>
-              <a href="#" class="twitter"><span class="icon-twitter"></span>Tweet</a>
-            </nav>
           </div>
-        </div>
+        </figure>
         
-        <div class="project">
-          <div class="info">
+        <figure class="album" onclick="openAlbum('solitude-motion')">
+          <img src="images/album-solitude.jpg" alt="Solitude in Motion Album Cover" />
+          <div class="album-overlay">
             <h3>Solitude in Motion</h3>
-            <p>Street photography that captures isolated moments of human experience within the urban landscape. These images explore the paradox of loneliness in crowded spaces and find poetry in the mundane.</p>
-            <nav>
-              <a href="#" class="facebook"><span class="icon-social-facebook"></span>Share</a>
-              <a href="#" class="twitter"><span class="icon-twitter"></span>Tweet</a>
-            </nav>
           </div>
-          <figure><img src="images/project2.jpg" alt="Solitude in Motion Series" /></figure>
-        </div>
+        </figure>
         
-        <div class="project">
-          <figure><img src="images/project3.jpg" alt="Light and Shadow Series" /></figure>
-          <div class="info">
-            <h3>Light and Shadow</h3>
-            <p>An ongoing series that examines the dramatic interplay between illumination and darkness. Shot primarily on film, these images celebrate the tactile quality of analog photography and the irreplaceable magic of grain.</p>
-            <nav>
-              <a href="#" class="facebook"><span class="icon-social-facebook"></span>Share</a>
-              <a href="#" class="twitter"><span class="icon-twitter"></span>Tweet</a>
-            </nav>
+        <figure class="album" onclick="openAlbum('light-shadow')">
+          <img src="images/album-light.jpg" alt="Light and Shadow Album Cover" />
+          <div class="album-overlay">
+            <h3>Light & Shadow</h3>
           </div>
-        </div>
+        </figure>
+        
+        <figure class="album" onclick="openAlbum('street-stories')">
+          <img src="images/album-street.jpg" alt="Street Stories Album Cover" />
+          <div class="album-overlay">
+            <h3>Street Stories</h3>
+          </div>
+        </figure>
+        
+        <figure class="album" onclick="openAlbum('minimal-forms')">
+          <img src="images/album-minimal.jpg" alt="Minimal Forms Album Cover" />
+          <div class="album-overlay">
+            <h3>Minimal Forms</h3>
+          </div>
+        </figure>
+        
+        <figure class="album" onclick="openAlbum('analog-dreams')">
+          <img src="images/album-analog.jpg" alt="Analog Dreams Album Cover" />
+          <div class="album-overlay">
+            <h3>Analog Dreams</h3>
+          </div>
+        </figure>
       </section>
     </section>
+    
+    <script>
+      function openAlbum(albumId) {
+        // This will later redirect to individual album pages
+        // For now, it shows an alert
+        alert('Opening ' + albumId + ' album - individual album pages to be created');
+        
+        // Future implementation:
+        // window.location.href = 'albums/' + albumId + '.html';
+      }
+    </script>
     
     <footer>
       <nav>
