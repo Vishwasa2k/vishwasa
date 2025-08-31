@@ -3,90 +3,120 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Portfolio – Vishwas Aravind</title>
+    <title>Projects – Vishwas Aravind</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://file.myfontastic.com/RCHR7rbAhuk35c8fGZrmSo/icons.css">
   </head>
   <body>
     <header>
       <nav>
-        <a href="index.html" title="Home">Home</a>
-        <a href="aboutme.html" title="About Me">About Me</a>
-        <a href="index.html">
-          <figure><img src="images/profile.jpg" alt="Vishwas Aravind Portrait" /></figure>
-        </a>
-        <a href="portfolio.html" title="Portfolio" class="on">Portfolio</a>
-        <a href="contact.html" title="Contact">Contact</a>
+        <a href="index.html" title="Home" class="nav-link">Stills</a>
+        <a href="aboutme.html" title="About Me" class="nav-link">About</a>
+        <a href="portfolio.html" title="Portfolio" class="nav-link on">Projects</a>
+        <a href="contact.html" title="Contact" class="nav-link">Contact</a>
       </nav>
+      
+      <div class="header-info">
+        <div class="profile-section">
+          <img src="images/profile.jpg" alt="Vishwas Aravind" class="profile-image" />
+          <div class="profile-text">
+            <h1>Vishwas Aravind</h1>
+            <p>Photographer & Visual Storyteller</p>
+          </div>
+        </div>
+      </div>
     </header>
-    
-    <section id="content">
-      <section class="portfolio-albums">
-        <figure class="album" onclick="openAlbum('Aero')">
-          <img src="images/DSC_1615.jpg" alt="Aero" />
-          <div class="album-overlay">
+
+    <main>
+      <section class="projects-grid">
+        <article class="project-card" onclick="openProject('urban-geometry')">
+          <div class="project-image">
+            <img src="images/project-urban-cover.jpg" alt="Urban Geometry Project" />
+          </div>
+          <div class="project-info">
             <h3>Urban Geometry</h3>
+            <p>Exploring architectural patterns and geometric forms in urban environments</p>
+            <span class="project-year">2024</span>
           </div>
-        </figure>
-        
-        <figure class="album" onclick="openAlbum('Portraits on Film')">
-          <img src="images/VA-02-011.jpg" alt="Portraits on Film" />
-          <div class="album-overlay">
-            <h3>Portraits on Film</h3>
+        </article>
+
+        <article class="project-card" onclick="openProject('solitude-motion')">
+          <div class="project-image">
+            <img src="images/project-solitude-cover.jpg" alt="Solitude in Motion Project" />
           </div>
-        </figure>
-        
-        <figure class="album" onclick="openAlbum('Urban Film')">
-          <img src="images/BUD11.jpg" alt="Light and Shadow Album Cover" />
-          <div class="album-overlay">
-            <h3>Urban Film</h3>
+          <div class="project-info">
+            <h3>Solitude in Motion</h3>
+            <p>Street photography capturing isolated moments in bustling city life</p>
+            <span class="project-year">2024</span>
           </div>
-        </figure>
-        
-        <figure class="album" onclick="openAlbum('street-stories')">
-          <img src="images/CAR_5233.jpg" alt="Street Stories Album Cover" />
-          <div class="album-overlay">
-            <h3>street-stories</h3>
+        </article>
+
+        <article class="project-card" onclick="openProject('light-shadow')">
+          <div class="project-image">
+            <img src="images/project-light-cover.jpg" alt="Light and Shadow Project" />
           </div>
-        </figure>
-        
-        <figure class="album" onclick="openAlbum('Formula Student')">
-          <img src="images/CAR_4773.jpg" alt="Minimal Forms Album Cover" />
-          <div class="album-overlay">
-            <h3>Formula Student</h3>
+          <div class="project-info">
+            <h3>Light & Shadow</h3>
+            <p>The dramatic interplay between illumination and darkness in everyday scenes</p>
+            <span class="project-year">2023</span>
           </div>
-        </figure>
-        
-        <figure class="album" onclick="openAlbum('analog-dreams')">
-          <img src="images/album-analog.jpg" alt="Analog Dreams Album Cover" />
-          <div class="album-overlay">
+        </article>
+
+        <article class="project-card" onclick="openProject('analog-dreams')">
+          <div class="project-image">
+            <img src="images/project-analog-cover.jpg" alt="Analog Dreams Project" />
+          </div>
+          <div class="project-info">
             <h3>Analog Dreams</h3>
+            <p>Film photography exploring the tactile quality and grain of analog processes</p>
+            <span class="project-year">2023</span>
           </div>
-        </figure>
+        </article>
+
+        <article class="project-card" onclick="openProject('minimal-forms')">
+          <div class="project-image">
+            <img src="images/project-minimal-cover.jpg" alt="Minimal Forms Project" />
+          </div>
+          <div class="project-info">
+            <h3>Minimal Forms</h3>
+            <p>Studying simplicity and negative space in contemporary photography</p>
+            <span class="project-year">2023</span>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('street-stories')">
+          <div class="project-image">
+            <img src="images/project-street-cover.jpg" alt="Street Stories Project" />
+          </div>
+          <div class="project-info">
+            <h3>Street Stories</h3>
+            <p>Narrative photography documenting authentic human experiences</p>
+            <span class="project-year">2022</span>
+          </div>
+        </article>
       </section>
-    </section>
-    
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://instagram.com/lordfarquaadsmom" target="_blank">Instagram</a>
+          <a href="mailto:vishwasa07@gmail.com">Email</a>
+          <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+        <p>&copy; 2024 Vishwas Aravind. All rights reserved.</p>
+      </div>
+    </footer>
+
     <script>
-      function openAlbum(albumId) {
-        // This will later redirect to individual album pages
-        // For now, it shows an alert
-        alert('Opening ' + albumId + ' album - individual album pages to be created');
+      function openProject(projectId) {
+        // Future implementation: redirect to individual project pages
+        alert('Opening ' + projectId + ' project - individual project pages to be created');
         
-        // Future implementation:
-        // window.location.href = 'albums/' + albumId + '.html';
+        // Later: window.location.href = 'projects/' + projectId + '.html';
       }
     </script>
-    
-    <footer>
-      <nav>
-        <a href="https://facebook.com"><span class="icon-social-facebook"></span></a>
-        <a href="https://twitter.com"><span class="icon-twitter"></span></a>
-        <a href="index.html">Vishwas Aravind</a>
-        <a href="https://instagram.com/lordfarquaadsmom"><span class="icon-instagram-2"></span></a>
-        <a href="mailto:vishwasaravind07@gmail.com"><span class="icon-mail-2"></span></a>
-      </nav>
-    </footer>
-    
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="js/main.js"></script>
   </body>
 </html>
