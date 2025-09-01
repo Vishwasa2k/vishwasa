@@ -73,7 +73,7 @@ nav {
 }
 
 .header-info {
-  padding: 20px 0 30px;
+  padding: 10px 0 20px;
   text-align: center;
   border-bottom: 1px solid var(--border-light);
 }
@@ -86,8 +86,8 @@ nav {
 }
 
 .profile-image {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--bg-primary);
@@ -96,7 +96,7 @@ nav {
 
 .profile-text h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   margin-bottom: 8px;
   color: var(--text-primary);
@@ -110,7 +110,7 @@ nav {
 
 /* MAIN CONTENT */
 main {
-  min-height: 70vh;
+  min-height: 50vh;
   padding: 80px 5% 100px;
 }
 
