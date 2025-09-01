@@ -107,6 +107,12 @@ window.addEventListener('scroll', function() {
         } else {
             header.style.boxShadow = 'none';
         }
+        if (headerInfo) {
+            if (window.scrollY > 50) {   // adjust scroll threshold as needed
+                headerInfo.classList.add('hide');
+            } else {
+                headerInfo.classList.remove('hide');
+            }
     }
 });
 
