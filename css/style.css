@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500&display=swap');
 
 :root {
-  --text-primary: #1a1a1a;
-  --text-secondary: #666;
-  --text-light: #999;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --border-light: #e0e0e0;
-  --accent: #000;
+  --text-primary: #ffffff;     /* pure white */
+  --text-secondary: #e0e0e0;   /* light grey */
+  --text-light: #b3b3b3;       /* softer muted grey */
+  --bg-primary: #1a1a1a;       /* deep charcoal (ChatGPT-like background) */
+  --bg-secondary: #2a2a2a;     /* slightly lighter dark grey */
+  --border-light: #333333;     /* subtle border grey */
+  --accent: #000000;           /* stays black for emphasis, can be neon if needed */
 }
 
 * {
