@@ -570,3 +570,13 @@ footer p {
     transform: translateY(0);
   }
 }
+
+/* HEADER INFO SCROLL ANIMATION */
+.header-info {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.header-info.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
