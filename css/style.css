@@ -33,7 +33,7 @@ body {
 header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-light);
@@ -44,7 +44,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  padding: 15px 0;
   gap: 60px;
 }
 
@@ -73,7 +73,7 @@ nav {
 }
 
 .header-info {
-  padding: 40px 0 60px;
+  padding: 20px 0 30px;
   text-align: center;
   border-bottom: 1px solid var(--border-light);
 }
@@ -86,8 +86,8 @@ nav {
 }
 
 .profile-image {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--bg-primary);
@@ -96,14 +96,14 @@ nav {
 
 .profile-text h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 400;
   margin-bottom: 8px;
   color: var(--text-primary);
 }
 
 .profile-text p {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-secondary);
   font-weight: 300;
 }
