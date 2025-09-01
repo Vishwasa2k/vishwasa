@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Header scroll effect (optional)
-    const header = document.querySelector('header');
+    const headerInfo = document.querySelector('header');
 
 window.addEventListener('scroll', function() {
     if (header) {
