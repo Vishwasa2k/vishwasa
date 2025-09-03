@@ -571,12 +571,20 @@ footer p {
   }
 }
 
-/* HEADER INFO SCROLL ANIMATION */
+/* HEADER INFO SCROLL ANIMATION - ENHANCED */
 .header-info {
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  max-height: 200px; /* Adjust based on your content height */
 }
 
 .header-info.hide {
   transform: translateY(-100%);
   opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
