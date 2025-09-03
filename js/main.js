@@ -200,16 +200,34 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+// Updated project opening function - Replace in your main.js
+
 // Project opening function (for portfolio page)
-function openProject(projectId) {
-    // Future implementation: redirect to individual project pages
-    console.log('Opening project:', projectId);
+function openProject(projectName) {
+    // Convert project names to URL-friendly slugs
+    const projectUrls = {
+        'Urban Geometry': 'urban-geometry.html',
+        'Solitude in Motion': 'solitude-in-motion.html',
+        'Light & Shadow': 'light-and-shadow.html',
+        'Analog Dreams': 'analog-dreams.html',
+        'Minimal Forms': 'minimal-forms.html',
+        'Street Stories': 'street-stories.html',
+        'Street Stories': 'street-stories.html', // Handle duplicate
+        'Formula Student': 'solitude-in-motion.html', // Map to existing
+        'Portraits': 'light-and-shadow.html', // Map to existing
+        'Automotive': 'minimal-forms.html' // Map to existing
+    };
     
-    // For now, show alert
-    alert('Opening ' + projectId + ' project - individual project pages to be created');
+    const projectUrl = projectUrls[projectName];
     
-    // Later implementation:
-    // window.location.href = 'projects/' + projectId + '.html';
+    if (projectUrl) {
+        // Navigate to the project page
+        window.location.href = projectUrl;
+    } else {
+        // Fallback for unmapped projects
+        console.log('Opening project:', projectName);
+        alert('Project page for "' + projectName + '" is being created. Please check back soon!');
+    }
 }
 
 // Utility function to handle image loading errors
