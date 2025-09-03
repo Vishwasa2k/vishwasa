@@ -283,6 +283,185 @@ main {
   font-weight: 300;
 }
 
+/* PROJECT PAGE STYLES */
+
+/* PROJECT HEADER */
+.project-header {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.project-nav {
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+  transform: translateX(-5px);
+}
+
+.project-title h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.project-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-meta {
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* PROJECT GALLERY */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto 100px;
+}
+
+.project-gallery .image-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-gallery .image-item:hover {
+  transform: translateY(-5px);
+}
+
+.project-gallery .image-item.portrait {
+  aspect-ratio: 3/4;
+}
+
+.project-gallery .image-item.landscape {
+  aspect-ratio: 16/9;
+}
+
+.project-gallery .image-item.square {
+  aspect-ratio: 1/1;
+}
+
+.project-gallery .image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-gallery .image-item:hover img {
+  transform: scale(1.05);
+}
+
+/* PROJECT DESCRIPTION */
+.project-description {
+  max-width: 800px;
+  margin: 0 auto 100px;
+  padding: 60px 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.description-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.description-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* PROJECT NAVIGATION */
+.project-navigation {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0;
+  border-top: 1px solid var(--border-light);
+  gap: 40px;
+}
+
+.nav-project {
+  flex: 1;
+  text-decoration: none;
+  padding: 30px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+  justify-content: center;
+}
+
+.nav-project:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+.nav-project.prev {
+  text-align: left;
+}
+
+.nav-project.next {
+  text-align: right;
+}
+
+.nav-label {
+  font-size: 12px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.nav-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
 /* ABOUT PAGE */
 .about-content {
   max-width: 700px;
@@ -540,7 +719,7 @@ footer p {
   /* Mobile responsive header animations */
   .header-info {
     padding: 20px 0 25px;
-    max-height: 190px;
+    max-height: 180px;
   }
   
   .header-info.hiding {
@@ -594,6 +773,41 @@ footer p {
   .lightbox-next {
     right: -60px;
   }
+  
+  /* PROJECT PAGE MOBILE STYLES */
+  .project-title h1 {
+    font-size: 36px;
+  }
+  
+  .project-subtitle {
+    font-size: 16px;
+  }
+  
+  .project-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 60px;
+  }
+  
+  .project-gallery .image-item {
+    aspect-ratio: 1/1 !important;
+  }
+  
+  .project-description {
+    margin-bottom: 60px;
+    padding: 40px 0;
+  }
+  
+  .project-navigation {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .nav-project {
+    text-align: center !important;
+    padding: 25px;
+    min-height: 100px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -619,6 +833,24 @@ footer p {
   
   .lightbox-next {
     right: -40px;
+  }
+  
+  /* PROJECT PAGE MOBILE STYLES */
+  .project-gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .project-title h1 {
+    font-size: 28px;
+  }
+  
+  .nav-project {
+    padding: 20px;
+  }
+  
+  .nav-title {
+    font-size: 18px;
   }
 }
 
