@@ -29,7 +29,7 @@ body {
   overflow-x: hidden;
 }
 
-/* HEADER */
+/* ENHANCED FLUID HEADER */
 header {
   position: sticky;
   top: 0;
@@ -38,6 +38,14 @@ header {
   backdrop-filter: blur(17px);
   border-bottom: 1px solid var(--border-light);
   padding: 0 5%;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Scrolled header state */
+header.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
 }
 
 nav {
@@ -46,6 +54,11 @@ nav {
   justify-content: center;
   padding: 15px 0;
   gap: 60px;
+  transition: padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+header.scrolled nav {
+  padding: 12px 0;
 }
 
 .nav-link {
@@ -72,17 +85,48 @@ nav {
   background: var(--accent);
 }
 
+/* Header info with fluid animation */
 .header-info {
-  padding: 05px 0 10px;
+  padding: 25px 0 30px;
   text-align: center;
   border-bottom: 1px solid var(--border-light);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: top center;
+  overflow: hidden;
+  max-height: 200px;
 }
 
+/* Progressive hide states for smoother transition */
+.header-info.hiding {
+  transform: translateY(-10px);
+  opacity: 0.7;
+  max-height: 150px;
+  padding: 15px 0 20px;
+}
+
+.header-info.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+  border-bottom-width: 0;
+}
+
+/* Profile section smooth scaling */
 .profile-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.header-info.hiding .profile-section {
+  transform: scale(0.95);
+}
+
+.header-info.hide .profile-section {
+  transform: scale(0.8);
 }
 
 .profile-image {
@@ -92,6 +136,17 @@ nav {
   object-fit: cover;
   border: 3px solid var(--bg-primary);
   box-shadow: 0 0 0 1px var(--border-light);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.header-info.hiding .profile-image {
+  width: 70px;
+  height: 70px;
+  opacity: 0.8;
+}
+
+.profile-text {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .profile-text h1 {
@@ -100,12 +155,24 @@ nav {
   font-weight: 400;
   margin-bottom: 8px;
   color: var(--text-primary);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .profile-text p {
   font-size: 14px;
   color: var(--text-secondary);
   font-weight: 300;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.header-info.hiding .profile-text h1 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.header-info.hiding .profile-text p {
+  font-size: 13px;
+  opacity: 0.8;
 }
 
 /* MAIN CONTENT */
@@ -470,13 +537,25 @@ footer p {
     font-size: 14px;
   }
   
+  /* Mobile responsive header animations */
   .header-info {
-    padding: 20px 0 30px;
+    padding: 20px 0 25px;
+    max-height: 180px;
+  }
+  
+  .header-info.hiding {
+    max-height: 120px;
+    padding: 10px 0 15px;
   }
   
   .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .header-info.hiding .profile-image {
+    width: 60px;
+    height: 60px;
   }
   
   .profile-text h1 {
@@ -569,22 +648,4 @@ footer p {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* HEADER INFO SCROLL ANIMATION - ENHANCED */
-.header-info {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  max-height: 200px; /* Adjust based on your content height */
-}
-
-.header-info.hide {
-  transform: translateY(-100%);
-  opacity: 0;
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
 }
