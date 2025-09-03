@@ -540,7 +540,7 @@ footer p {
   /* Mobile responsive header animations */
   .header-info {
     padding: 20px 0 25px;
-    max-height: 180px;
+    max-height: 190px;
   }
   
   .header-info.hiding {
