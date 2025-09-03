@@ -97,25 +97,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Header scroll effect (optional)
-    const headerInfo = document.querySelector('header');
-
-window.addEventListener('scroll', function() {
-    if (header) {
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
-        } else {
-            header.style.boxShadow = 'none';
+    // Header scroll effect - FIXED VERSION
+    const header = document.querySelector('header');
+    const headerInfo = document.querySelector('.header-info');
+    
+    window.addEventListener('scroll', function() {
+        // Add shadow to header on scroll
+        if (header) {
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
         }
+        
+        // Hide/show profile section on scroll
         if (headerInfo) {
-            if (window.scrollY > 50) {   // adjust scroll threshold as needed
+            if (window.scrollY > 50) {
                 headerInfo.classList.add('hide');
             } else {
                 headerInfo.classList.remove('hide');
             }
-    }
-});
-
+        }
+    });
     
     // Image lazy loading enhancement
     if ('IntersectionObserver' in window) {
