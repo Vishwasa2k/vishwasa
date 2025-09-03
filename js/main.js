@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxPrev = document.querySelector('.lightbox-prev');
     const lightboxNext = document.querySelector('.lightbox-next');
     
-    // Get all gallery images
-    const galleryImages = document.querySelectorAll('.stills-gallery .image-item img');
+    // Get all gallery images (works for both main gallery and project galleries)
+    const galleryImages = document.querySelectorAll('.stills-gallery .image-item img, .project-gallery .image-item img');
     let currentImageIndex = 0;
     
     // Open lightbox
@@ -200,9 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-// Updated project opening function - Replace in your main.js
-
-// Project opening function (for portfolio page)
+// Project opening function (for portfolio page) - UPDATED
 function openProject(projectName) {
     // Convert project names to URL-friendly slugs
     const projectUrls = {
@@ -212,7 +210,6 @@ function openProject(projectName) {
         'Analog Dreams': 'analog-dreams.html',
         'Minimal Forms': 'minimal-forms.html',
         'Street Stories': 'street-stories.html',
-        'Street Stories': 'street-stories.html', // Handle duplicate
         'Formula Student': 'solitude-in-motion.html', // Map to existing
         'Portraits': 'light-and-shadow.html', // Map to existing
         'Automotive': 'minimal-forms.html' // Map to existing
