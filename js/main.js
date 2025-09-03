@@ -97,29 +97,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Header scroll effect - FIXED VERSION
+    // ENHANCED FLUID HEADER SCROLL ANIMATION
     const header = document.querySelector('header');
     const headerInfo = document.querySelector('.header-info');
     
-    window.addEventListener('scroll', function() {
-        // Add shadow to header on scroll
+    // Scroll state variables
+    let ticking = false;
+    let lastScrollY = 0;
+    
+    // Smooth scroll handler with requestAnimationFrame
+    function updateHeader() {
+        const scrollY = window.scrollY;
+        const scrollDelta = scrollY - lastScrollY;
+        
+        // Header shadow and background enhancement
         if (header) {
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
+            if (scrollY > 80) {
+                header.classList.add('scrolled');
             } else {
-                header.style.boxShadow = 'none';
+                header.classList.remove('scrolled');
             }
         }
         
-        // Hide/show profile section on scroll
+        // Progressive profile section hiding with three states
         if (headerInfo) {
-            if (window.scrollY > 50) {
+            if (scrollY > 120) {
+                // Fully hidden
+                headerInfo.classList.remove('hiding');
                 headerInfo.classList.add('hide');
-            } else {
+            } else if (scrollY > 40) {
+                // Progressive hiding state
                 headerInfo.classList.remove('hide');
+                headerInfo.classList.add('hiding');
+            } else {
+                // Fully visible
+                headerInfo.classList.remove('hide', 'hiding');
             }
         }
-    });
+        
+        lastScrollY = scrollY;
+        ticking = false;
+    }
+    
+    // Optimized scroll listener using requestAnimationFrame
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }
+    
+    // Throttled scroll event
+    window.addEventListener('scroll', requestTick, { passive: true });
+    
+    // Initial state check
+    window.addEventListener('load', updateHeader);
     
     // Image lazy loading enhancement
     if ('IntersectionObserver' in window) {
