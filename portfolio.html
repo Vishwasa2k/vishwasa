@@ -29,7 +29,7 @@
 
     <main>
       <section class="projects-grid">
-        <article class="project-card" onclick="openProject('Street Stories')">
+        <article class="project-card" onclick="openProject('Urban Geometry')">
           <div class="project-image">
             <img src="images/BUD11.jpg" alt="Urban Geometry Project" />
           </div>
@@ -40,18 +40,18 @@
           </div>
         </article>
 
-        <article class="project-card" onclick="openProject('Formula Student')">
+        <article class="project-card" onclick="openProject('Analog Dreams')">
           <div class="project-image">
-            <img src="images/CAR_4773.jpg" alt="Solitude in Motion Project" />
+            <img src="images/CAR_4773.jpg" alt="Analog Dreams Project" />
           </div>
           <div class="project-info">
-            <h3>Solitude in Motion</h3>
-            <p>Street photography capturing isolated moments in bustling city life</p>
+            <h3>Analog Dreams</h3>
+            <p>Film photography exploring the tactile quality and grain of analog processes</p>
             <span class="project-year">2024</span>
           </div>
         </article>
 
-        <article class="project-card" onclick="openProject('Portraits')">
+        <article class="project-card" onclick="createComingSoonAlert('Light & Shadow')">
           <div class="project-image">
             <img src="images/VA-02-011.jpg" alt="Light and Shadow Project" />
           </div>
@@ -62,18 +62,7 @@
           </div>
         </article>
 
-        <article class="project-card" onclick="openProject('analog-dreams')">
-          <div class="project-image">
-            <img src="images/VA-02-030.jpg" alt="Analog Dreams Project" />
-          </div>
-          <div class="project-info">
-            <h3>Analog Dreams</h3>
-            <p>Film photography exploring the tactile quality and grain of analog processes</p>
-            <span class="project-year">2023</span>
-          </div>
-        </article>
-
-        <article class="project-card" onclick="openProject('Automotive')">
+        <article class="project-card" onclick="createComingSoonAlert('Minimal Forms')">
           <div class="project-image">
             <img src="images/DSC_1918-2.jpg" alt="Minimal Forms Project" />
           </div>
@@ -84,7 +73,18 @@
           </div>
         </article>
 
-        <article class="project-card" onclick="openProject('street-stories')">
+        <article class="project-card" onclick="createComingSoonAlert('Solitude in Motion')">
+          <div class="project-image">
+            <img src="images/CAR_4321.jpg" alt="Solitude in Motion Project" />
+          </div>
+          <div class="project-info">
+            <h3>Solitude in Motion</h3>
+            <p>Street photography capturing isolated moments in bustling city life</p>
+            <span class="project-year">2024</span>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Street Stories')">
           <div class="project-image">
             <img src="images/BUD3.jpg" alt="Street Stories Project" />
           </div>
@@ -109,11 +109,26 @@
     </footer>
 
     <script>
-      function openProject(projectId) {
-        // Future implementation: redirect to individual project pages
-        alert('Opening ' + projectId + ' project - individual project pages to be created');
+      // Updated project opening function
+      function openProject(projectName) {
+        const projectUrls = {
+          'Urban Geometry': 'urban-geometry.html',
+          'Analog Dreams': 'analog-dreams.html'
+          // Add more as you create the HTML files
+        };
         
-        // Later: window.location.href = 'projects/' + projectId + '.html';
+        const projectUrl = projectUrls[projectName];
+        
+        if (projectUrl) {
+          // Check if file exists by attempting to navigate
+          window.location.href = projectUrl;
+        } else {
+          createComingSoonAlert(projectName);
+        }
+      }
+
+      function createComingSoonAlert(projectName) {
+        alert('The "' + projectName + '" project page is coming soon! Currently working on creating individual project galleries.');
       }
     </script>
 
