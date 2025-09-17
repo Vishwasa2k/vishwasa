@@ -10,61 +10,80 @@
   <body>
     <header>
       <nav>
-        <a href="index.html" title="Home" class="nav-link on">Stills</a>
+        <a href="index.html" title="Home" class="nav-link on">Home</a>
         <a href="aboutme.html" title="About Me" class="nav-link">About</a>
         <a href="portfolio.html" title="Portfolio" class="nav-link">Projects</a>
         <a href="contact.html" title="Contact" class="nav-link">Contact</a>
       </nav>
-      
-      <div class="header-info">
-        <div class="profile-section">
-          <img src="images/profile.jpg" alt="Vishwas Aravind" class="profile-image" />
-          <div class="profile-text">
-            <h1>Vishwas Aravind</h1>
-            <p>Photographer & Visual Storyteller</p>
-          </div>
-        </div>
-      </div>
     </header>
 
     <main>
-      <section class="stills-gallery">
-        <div class="image-item portrait">
-          <img src="images/BUD11.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item portrait">
-          <img src="images/CAR_4321.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item portrait">
-          <img src="images/CAR_4368.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-         <div class="image-item portrait">
-          <img src="images/CAR_4383.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item landscape">
-          <img src="images/VA-02-011.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item landscape">
-          <img src="images/DSC_1615.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item landscape">
-          <img src="images/CAR_4773.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item portrait">
-          <img src="images/CAR_4510.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item portrait">
-          <img src="images/CAR_4511.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item portrait">
-          <img src="images/CAR_4531.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item portrait">
-          <img src="images/CAR_4537.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
-        <div class="image-item portrait">
-          <img src="images/CAR_4602.jpg" alt="Photography by Vishwas Aravind" />
-        </div>
+      <section class="home-gallery">
+        <article class="project-card" onclick="openProject('Urban Geometry')">
+          <div class="project-image">
+            <img src="images/BUD11.jpg" alt="Urban Geometry Project" />
+          </div>
+          <div class="project-info">
+            <h3>Urban Geometry</h3>
+            <p>Exploring architectural patterns and geometric forms in urban environments</p>
+            <span class="project-year">2024</span>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Analog Dreams')">
+          <div class="project-image">
+            <img src="images/CAR_4773.jpg" alt="Analog Dreams Project" />
+          </div>
+          <div class="project-info">
+            <h3>Analog Dreams</h3>
+            <p>Film photography exploring the tactile quality and grain of analog processes</p>
+            <span class="project-year">2024</span>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Light & Shadow')">
+          <div class="project-image">
+            <img src="images/VA-02-011.jpg" alt="Light and Shadow Project" />
+          </div>
+          <div class="project-info">
+            <h3>Light & Shadow</h3>
+            <p>The dramatic interplay between illumination and darkness in everyday scenes</p>
+            <span class="project-year">2023</span>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Minimal Forms')">
+          <div class="project-image">
+            <img src="images/CAR_4321.jpg" alt="Minimal Forms Project" />
+          </div>
+          <div class="project-info">
+            <h3>Minimal Forms</h3>
+            <p>Studying simplicity and negative space in contemporary photography</p>
+            <span class="project-year">2023</span>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Solitude in Motion')">
+          <div class="project-image">
+            <img src="images/CAR_4368.jpg" alt="Solitude in Motion Project" />
+          </div>
+          <div class="project-info">
+            <h3>Solitude in Motion</h3>
+            <p>Street photography capturing isolated moments in bustling city life</p>
+            <span class="project-year">2024</span>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Street Stories')">
+          <div class="project-image">
+            <img src="images/CAR_4383.jpg" alt="Street Stories Project" />
+          </div>
+          <div class="project-info">
+            <h3>Street Stories</h3>
+            <p>Narrative photography documenting authentic human experiences</p>
+            <span class="project-year">2022</span>
+          </div>
+        </article>
       </section>
     </main>
 
@@ -78,17 +97,29 @@
       </div>
     </footer>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-content">
-        <span class="lightbox-close">&times;</span>
-        <img src="" alt="" id="lightbox-img">
-        <div class="lightbox-nav">
-          <button class="lightbox-prev">‹</button>
-          <button class="lightbox-next">›</button>
-        </div>
-      </div>
-    </div>
+    <script>
+      // Project opening function
+      function openProject(projectName) {
+        const projectUrls = {
+          'Urban Geometry': 'urban-geometry.html',
+          'Analog Dreams': 'analog-dreams.html'
+          // Add more as you create the HTML files
+        };
+        
+        const projectUrl = projectUrls[projectName];
+        
+        if (projectUrl) {
+          // Navigate to project page
+          window.location.href = projectUrl;
+        } else {
+          createComingSoonAlert(projectName);
+        }
+      }
+
+      function createComingSoonAlert(projectName) {
+        alert('The "' + projectName + '" project page is coming soon! Currently working on creating individual project galleries.');
+      }
+    </script>
 
     <script src="js/main.js"></script>
   </body>
