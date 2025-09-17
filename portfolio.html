@@ -10,21 +10,11 @@
   <body>
     <header>
       <nav>
-        <a href="index.html" title="Home" class="nav-link">Stills</a>
+        <a href="index.html" title="Home" class="nav-link">Home</a>
         <a href="aboutme.html" title="About Me" class="nav-link">About</a>
         <a href="portfolio.html" title="Portfolio" class="nav-link on">Projects</a>
         <a href="contact.html" title="Contact" class="nav-link">Contact</a>
       </nav>
-      
-      <div class="header-info">
-        <div class="profile-section">
-          <img src="images/profile.jpg" alt="Vishwas Aravind" class="profile-image" />
-          <div class="profile-text">
-            <h1>Vishwas Aravind</h1>
-            <p>Photographer & Visual Storyteller</p>
-          </div>
-        </div>
-      </div>
     </header>
 
     <main>
@@ -109,7 +99,7 @@
     </footer>
 
     <script>
-      // Updated project opening function
+      // Project opening function
       function openProject(projectName) {
         const projectUrls = {
           'Urban Geometry': 'urban-geometry.html',
@@ -120,7 +110,7 @@
         const projectUrl = projectUrls[projectName];
         
         if (projectUrl) {
-          // Check if file exists by attempting to navigate
+          // Navigate to project page
           window.location.href = projectUrl;
         } else {
           createComingSoonAlert(projectName);
