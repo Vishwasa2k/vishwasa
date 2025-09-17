@@ -366,6 +366,19 @@ main {
   text-align: center;
 }
 
+.about-image {
+  margin-bottom: 40px;
+}
+
+.about-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 .about-content h2 {
   font-family: 'Playfair Display', serif;
   font-size: 36px;
