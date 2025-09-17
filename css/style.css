@@ -371,8 +371,8 @@ main {
 }
 
 .about-image img {
-  width: 200px;
-  height: 200px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--border-light);
