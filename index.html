@@ -79,17 +79,19 @@
       // Project opening function
       function openProject(projectName) {
         const projectUrls = {
-          'Motorsports': 'analog-dreams.html',
+          'Motorsports': 'motorsports.html',
           'Urban Geometry': 'urban-geometry.html'
-          // Add more as you create the HTML files
         };
         
         const projectUrl = projectUrls[projectName];
         
         if (projectUrl) {
+          // Debug: Let's see what we're trying to open
+          console.log('Trying to open:', projectUrl);
           // Navigate to project page
           window.location.href = projectUrl;
         } else {
+          console.log('No URL found for project:', projectName);
           createComingSoonAlert(projectName);
         }
       }
