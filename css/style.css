@@ -191,15 +191,13 @@ main {
   letter-spacing: 1px;
 }
 
-/* MASONRY-STYLE PROJECT GALLERY LAYOUT */
+/* PROJECT GALLERY (inside individual project pages) */
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-auto-rows: 240px; /* Base unit height */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   max-width: 1400px;
   margin: 0 auto 100px;
-  align-items: start;
 }
 
 .project-gallery .image-item {
@@ -208,41 +206,33 @@ main {
   background: var(--bg-secondary);
   cursor: pointer;
   transition: transform 0.3s ease;
-  width: 100%;
 }
 
 .project-gallery .image-item:hover {
   transform: translateY(-5px);
 }
 
-/* Grid spanning based on image orientation */
 .project-gallery .image-item.portrait {
-  grid-row: span 3; /* 3 × 180px = 540px tall */
+  aspect-ratio: 3/4;
 }
 
 .project-gallery .image-item.landscape {
-  grid-row: span 2; /* 2 × 180px = 360px tall */
+  aspect-ratio: 16/9;
 }
 
 .project-gallery .image-item.square {
-  grid-row: span 3; /* 3 × 180px = 540px tall */
+  aspect-ratio: 1/1;
 }
 
-/* Image styling */
 .project-gallery .image-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   transition: transform 0.5s ease;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  backface-visibility: hidden;
-  transform: translateZ(0);
 }
 
 .project-gallery .image-item:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* PROJECT DESCRIPTION */
@@ -564,26 +554,7 @@ footer p {
   right: -80px;
 }
 
-/* RESPONSIVE DESIGN - MASONRY GRID */
-@media (max-width: 1200px) {
-  .project-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows: 160px;
-  }
-  
-  .project-gallery .image-item.portrait {
-    grid-row: span 3; /* 3 × 160px = 480px */
-  }
-  
-  .project-gallery .image-item.landscape {
-    grid-row: span 2; /* 2 × 160px = 320px */
-  }
-  
-  .project-gallery .image-item.square {
-    grid-row: span 2; /* 2 × 160px = 320px */
-  }
-}
-
+/* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
   .home-gallery {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -640,23 +611,14 @@ footer p {
     font-size: 16px;
   }
   
-  /* MASONRY GRID - TABLET */
   .project-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
+    margin-bottom: 60px;
   }
   
-  .project-gallery .image-item.portrait {
-    grid-row: span 3; /* 3 × 140px = 420px */
-  }
-  
-  .project-gallery .image-item.landscape {
-    grid-row: span 2; /* 2 × 140px = 280px */
-  }
-  
-  .project-gallery .image-item.square {
-    grid-row: span 2; /* 2 × 140px = 280px */
+  .project-gallery .image-item {
+    aspect-ratio: 1/1 !important;
   }
   
   .project-description {
@@ -694,6 +656,11 @@ footer p {
   }
   
   /* PROJECT PAGE MOBILE STYLES */
+  .project-gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
   .project-title h1 {
     font-size: 28px;
   }
@@ -704,26 +671,6 @@ footer p {
   
   .nav-title {
     font-size: 18px;
-  }
-  
-  /* MASONRY GRID - MOBILE */
-  .project-gallery {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 180px;
-    gap: 12px;
-  }
-  
-  /* Consistent sizing on mobile */
-  .project-gallery .image-item.portrait {
-    grid-row: span 3; /* 3 × 180px = 540px */
-  }
-  
-  .project-gallery .image-item.landscape {
-    grid-row: span 2; /* 2 × 180px = 360px */
-  }
-  
-  .project-gallery .image-item.square {
-    grid-row: span 2; /* 2 × 180px = 360px */
   }
 }
 
