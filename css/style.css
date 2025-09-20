@@ -195,10 +195,10 @@ main {
 .project-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-auto-rows: 180px; /* Base unit height */
+  grid-auto-rows: 240px; /* Base unit height */
   gap: 10px;
   max-width: 1400px;
-  margin: 0 auto 80px;
+  margin: 0 auto 30px;
   align-items: start;
 }
 
