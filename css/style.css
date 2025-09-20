@@ -657,8 +657,8 @@ footer p {
   }
   
   .lightbox-content {
-    max-width: 98vw;
-    max-height: 90vh;
+    max-width: 70vw;
+    max-height: 60vh;
   }
   
   .lightbox-close {
