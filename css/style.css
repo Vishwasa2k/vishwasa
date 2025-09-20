@@ -482,6 +482,7 @@ footer p {
 }
 
 /* IMPROVED LIGHTBOX */
+/* IMPROVED LIGHTBOX WITH PROPER PROPORTIONS */
 .lightbox {
   position: fixed;
   top: 0;
@@ -496,7 +497,7 @@ footer p {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  padding: 20px;
+  padding: 40px;
 }
 
 .lightbox.active {
@@ -506,8 +507,8 @@ footer p {
 
 .lightbox-content {
   position: relative;
-  max-width: 95vw;
-  max-height: 95vh;
+  max-width: 90vw;
+  max-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -522,7 +523,10 @@ footer p {
   object-position: center;
   display: block;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  /* Ensure natural aspect ratio is maintained */
+  aspect-ratio: attr(width) / attr(height);
 }
+
 
 .lightbox-close {
   position: absolute;
