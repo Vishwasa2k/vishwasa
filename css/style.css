@@ -78,8 +78,8 @@ main {
   padding: 80px 5% 100px;
 }
 
-/* PROJECT GALLERY STYLES (for both index and portfolio pages) */
-.projects-grid, .home-gallery {
+/* HOME GALLERY - PROJECT CARDS ONLY */
+.home-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
@@ -128,71 +128,16 @@ main {
   text-align: center;
 }
 
-.project-info p {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.project-year {
-  font-size: 13px;
-  color: var(--text-light);
-  font-weight: 300;
-}
-
-/* HIDE OLD STILLS GALLERY - This prevents duplicates */
+/* HIDE ANY OLD GALLERY SECTIONS COMPLETELY */
 .stills-gallery {
   display: none !important;
 }
 
-/* STILLS GALLERY (legacy support) */
-.stills-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+.projects-grid {
+  display: none !important;
 }
 
-.image-item {
-  position: relative;
-  overflow: hidden;
-  background: var(--bg-secondary);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.image-item:hover {
-  transform: translateY(-5px);
-}
-
-.image-item.portrait {
-  aspect-ratio: 3/4;
-}
-
-.image-item.landscape {
-  aspect-ratio: 16/9;
-}
-
-.image-item.square {
-  aspect-ratio: 1/1;
-}
-
-.image-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.image-item:hover img {
-  transform: scale(1.05);
-}
-
-/* PROJECT PAGE STYLES */
-
-/* PROJECT HEADER */
+/* INDIVIDUAL PROJECT PAGES */
 .project-header {
   max-width: 1200px;
   margin: 0 auto 80px;
@@ -246,7 +191,7 @@ main {
   letter-spacing: 1px;
 }
 
-/* PROJECT GALLERY */
+/* PROJECT GALLERY (inside individual project pages) */
 .project-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -611,12 +556,7 @@ footer p {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
-  .stills-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-  }
-  
-  .projects-grid, .home-gallery {
+  .home-gallery {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
   }
@@ -641,16 +581,7 @@ footer p {
     padding: 60px 20px 80px;
   }
   
-  .stills-gallery {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  
-  .image-item {
-    aspect-ratio: 1/1 !important;
-  }
-  
-  .projects-grid, .home-gallery {
+  .home-gallery {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -712,11 +643,7 @@ footer p {
     gap: 20px;
   }
   
-  .stills-gallery {
-    grid-template-columns: 1fr;
-  }
-  
-  .projects-grid, .home-gallery {
+  .home-gallery {
     grid-template-columns: 1fr;
   }
   
@@ -748,24 +675,17 @@ footer p {
 }
 
 /* ANIMATIONS */
-.image-item,
 .project-card {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease forwards;
 }
 
-.image-item:nth-child(1),
 .project-card:nth-child(1) { animation-delay: 0.1s; }
-.image-item:nth-child(2),
 .project-card:nth-child(2) { animation-delay: 0.2s; }
-.image-item:nth-child(3),
 .project-card:nth-child(3) { animation-delay: 0.3s; }
-.image-item:nth-child(4),
 .project-card:nth-child(4) { animation-delay: 0.4s; }
-.image-item:nth-child(5),
 .project-card:nth-child(5) { animation-delay: 0.5s; }
-.image-item:nth-child(6),
 .project-card:nth-child(6) { animation-delay: 0.6s; }
 
 @keyframes fadeInUp {
