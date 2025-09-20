@@ -141,6 +141,11 @@ main {
   font-weight: 300;
 }
 
+/* HIDE OLD STILLS GALLERY - This prevents duplicates */
+.stills-gallery {
+  display: none !important;
+}
+
 /* STILLS GALLERY (legacy support) */
 .stills-gallery {
   display: grid;
