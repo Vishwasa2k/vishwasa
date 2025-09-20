@@ -18,12 +18,74 @@
 
     <main>
       <section class="home-gallery">
-        <article class="project-card" onclick="openProject('Motorsports')">
+        <article class="project-card" onclick="createComingSoonAlert('Formula Student')">
           <div class="project-image">
-            <img src="images/CAR_4773.jpg" alt="Motorsports Project" />
+            <img src="images/CAR_4773.jpg" alt="Formula Student Project" />
           </div>
           <div class="project-info">
-            <h3>Motorsports</h3>
+            <h3>Formula Student</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Automotive')">
+          <div class="project-image">
+            <img src="images/CAR_4321.jpg" alt="Automotive Project" />
+          </div>
+          <div class="project-info">
+            <h3>Automotive</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Urban Geometry')">
+          <div class="project-image">
+            <img src="images/BUD11.jpg" alt="Urban Geometry Project" />
+          </div>
+          <div class="project-info">
+            <h3>Urban Geometry</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Light & Shadow')">
+          <div class="project-image">
+            <img src="images/VA-02-011.jpg" alt="Light and Shadow Project" />
+          </div>
+          <div class="project-info">
+            <h3>Light & Shadow</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Landscapes')">
+          <div class="project-image">
+            <img src="images/CAR_4383.jpg" alt="Landscapes Project" />
+          </div>
+          <div class="project-info">
+            <h3>Landscapes</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Campaigns')">
+          <div class="project-image">
+            <img src="images/CAR_4368.jpg" alt="Campaigns Project" />
+          </div>
+          <div class="project-info">
+            <h3>Campaigns</h3>
+          </div>
+        </article>
+      </section> onclick="createComingSoonAlert('Formula Student')">
+          <div class="project-image">
+            <img src="images/CAR_4773.jpg" alt="Formula Student Project" />
+          </div>
+          <div class="project-info">
+            <h3>Formula Student</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Automotive')">
+          <div class="project-image">
+            <img src="images/CAR_4321.jpg" alt="Automotive Project" />
+          </div>
+          <div class="project-info">
+            <h3>Automotive</h3>
           </div>
         </article>
 
@@ -47,7 +109,7 @@
 
         <article class="project-card" onclick="createComingSoonAlert('Campaigns')">
           <div class="project-image">
-            <img src="images/CAR_4321.jpg" alt="Campaigns Project" />
+            <img src="images/CAR_4368.jpg" alt="Campaigns Project" />
           </div>
           <div class="project-info">
             <h3>Campaigns</h3>
@@ -79,7 +141,7 @@
       // Project opening function
       function openProject(projectName) {
         const projectUrls = {
-          'Motorsports': 'motorsports.html',
+          'Automotive': 'motorsports.html',
           'Urban Geometry': 'urban-geometry.html'
         };
         
