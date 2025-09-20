@@ -1,776 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500&display=swap');
-
-:root {
-  --text-primary: #ffffff;     /* pure white */
-  --text-secondary: #e0e0e0;   /* light grey */
-  --text-light: #b3b3b3;       /* softer muted grey */
-  --bg-primary: #1a1a1a;       /* deep charcoal (ChatGPT-like background) */
-  --bg-secondary: #2a2a2a;     /* slightly lighter dark grey */
-  --border-light: #333333;     /* subtle border grey */
-  --accent: #000000;           /* stays black for emphasis, can be neon if needed */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  overflow-x: hidden;
-}
-
-/* SIMPLIFIED STATIC HEADER */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-light);
-  padding: 0 5%;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0;
-  gap: 60px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 400;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover,
-.nav-link.on {
-  color: var(--text-secondary);
-}
-
-.nav-link.on::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--accent);
-}
-
-/* MAIN CONTENT */
-main {
-  min-height: 50vh;
-  padding: 80px 5% 100px;
-}
-
-/* PROJECT GALLERY STYLES (for both index and portfolio pages) */
-.projects-grid, .home-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.project-card {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-}
-
-.project-image {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  margin-bottom: 20px;
-  background: var(--bg-secondary);
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
-}
-
-.project-info h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 0;
-  color: var(--text-primary);
-  text-align: center;
-}
-
-.project-info p {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.project-year {
-  font-size: 13px;
-  color: var(--text-light);
-  font-weight: 300;
-}
-
-/* HIDE OLD STILLS GALLERY - This prevents duplicates */
-.stills-gallery {
-  display: none !important;
-}
-
-/* STILLS GALLERY (legacy support) */
-.stills-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.image-item {
-  position: relative;
-  overflow: hidden;
-  background: var(--bg-secondary);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.image-item:hover {
-  transform: translateY(-5px);
-}
-
-.image-item.portrait {
-  aspect-ratio: 3/4;
-}
-
-.image-item.landscape {
-  aspect-ratio: 16/9;
-}
-
-.image-item.square {
-  aspect-ratio: 1/1;
-}
-
-.image-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.image-item:hover img {
-  transform: scale(1.05);
-}
-
-/* PROJECT PAGE STYLES */
-
-/* PROJECT HEADER */
-.project-header {
-  max-width: 1200px;
-  margin: 0 auto 80px;
-  text-align: center;
-}
-
-.project-nav {
-  margin-bottom: 40px;
-  text-align: left;
-}
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 400;
-  transition: all 0.3s ease;
-  padding: 8px 0;
-}
-
-.back-link:hover {
-  color: var(--text-primary);
-  transform: translateX(-5px);
-}
-
-.project-title h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: 400;
-  margin-bottom: 20px;
-  color: var(--text-primary);
-}
-
-.project-subtitle {
-  font-size: 18px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.project-meta {
-  font-size: 14px;
-  color: var(--text-light);
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* PROJECT GALLERY */
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto 100px;
-}
-
-.project-gallery .image-item {
-  position: relative;
-  overflow: hidden;
-  background: var(--bg-secondary);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.project-gallery .image-item:hover {
-  transform: translateY(-5px);
-}
-
-.project-gallery .image-item.portrait {
-  aspect-ratio: 3/4;
-}
-
-.project-gallery .image-item.landscape {
-  aspect-ratio: 16/9;
-}
-
-.project-gallery .image-item.square {
-  aspect-ratio: 1/1;
-}
-
-.project-gallery .image-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-gallery .image-item:hover img {
-  transform: scale(1.05);
-}
-
-/* PROJECT DESCRIPTION */
-.project-description {
-  max-width: 800px;
-  margin: 0 auto 100px;
-  padding: 60px 0;
-  border-top: 1px solid var(--border-light);
-}
-
-.description-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 30px;
-  color: var(--text-primary);
-  text-align: center;
-}
-
-.description-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-/* PROJECT NAVIGATION */
-.project-navigation {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 0;
-  border-top: 1px solid var(--border-light);
-  gap: 40px;
-}
-
-.nav-project {
-  flex: 1;
-  text-decoration: none;
-  padding: 30px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  min-height: 120px;
-  justify-content: center;
-}
-
-.nav-project:hover {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: var(--text-light);
-  transform: translateY(-2px);
-}
-
-.nav-project.prev {
-  text-align: left;
-}
-
-.nav-project.next {
-  text-align: right;
-}
-
-.nav-label {
-  font-size: 12px;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.nav-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  color: var(--text-primary);
-  font-weight: 400;
-}
-
-/* ABOUT PAGE */
-.about-content {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.about-image {
-  margin-bottom: 40px;
-}
-
-.about-image img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--border-light);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.about-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 400;
-  margin-bottom: 30px;
-  color: var(--text-primary);
-}
-
-.about-content h3 {
-  font-size: 18px;
-  color: var(--text-secondary);
-  font-weight: 300;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.about-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-/* CONTACT PAGE */
-.contact-content {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contact-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: 50px;
-}
-
-.contact-info {
-  list-style: none;
-  margin-bottom: 50px;
-}
-
-.contact-info li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: var(--text-primary);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 15px;
-  border: 1px solid var(--border-light);
-  border-radius: 0;
-  font-family: inherit;
-  font-size: 15px;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  transition: border-color 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.contact-form button {
-  padding: 15px 40px;
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 0;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  align-self: center;
-}
-
-.contact-form button:hover {
-  background: #333;
-  transform: translateY(-2px);
-}
-
-/* FOOTER */
-footer {
-  background: var(--bg-secondary);
-  padding: 50px 5%;
-  text-align: center;
-  border-top: 1px solid var(--border-light);
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 30px;
-}
-
-.social-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 400;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: var(--text-primary);
-}
-
-footer p {
-  font-size: 14px;
-  color: var(--text-light);
-  font-weight: 300;
-}
-
-/* LIGHTBOX */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.lightbox img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: -50px;
-  right: -20px;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.lightbox-close:hover {
-  opacity: 0.7;
-}
-
-.lightbox-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 20px;
-}
-
-.lightbox-prev,
-.lightbox-next {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-  padding: 10px;
-}
-
-.lightbox-prev:hover,
-.lightbox-next:hover {
-  opacity: 0.7;
-}
-
-.lightbox-prev {
-  left: -80px;
-}
-
-.lightbox-next {
-  right: -80px;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-  .stills-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-  }
-  
-  .projects-grid, .home-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 0 20px;
-  }
-  
-  nav {
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 15px 0;
-  }
-  
-  .nav-link {
-    font-size: 14px;
-  }
-  
-  main {
-    padding: 60px 20px 80px;
-  }
-  
-  .stills-gallery {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  
-  .image-item {
-    aspect-ratio: 1/1 !important;
-  }
-  
-  .projects-grid, .home-gallery {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .project-info h3 {
-    font-size: 20px;
-  }
-  
-  .social-links {
-    gap: 25px;
-  }
-  
-  .lightbox-prev {
-    left: -60px;
-  }
-  
-  .lightbox-next {
-    right: -60px;
-  }
-  
-  /* PROJECT PAGE MOBILE STYLES */
-  .project-title h1 {
-    font-size: 36px;
-  }
-  
-  .project-subtitle {
-    font-size: 16px;
-  }
-  
-  .project-gallery {
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 60px;
-  }
-  
-  .project-gallery .image-item {
-    aspect-ratio: 1/1 !important;
-  }
-  
-  .project-description {
-    margin-bottom: 60px;
-    padding: 40px 0;
-  }
-  
-  .project-navigation {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .nav-project {
-    text-align: center !important;
-    padding: 25px;
-    min-height: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    gap: 20px;
-  }
-  
-  .stills-gallery {
-    grid-template-columns: 1fr;
-  }
-  
-  .projects-grid, .home-gallery {
-    grid-template-columns: 1fr;
-  }
-  
-  .lightbox-prev {
-    left: -40px;
-  }
-  
-  .lightbox-next {
-    right: -40px;
-  }
-  
-  /* PROJECT PAGE MOBILE STYLES */
-  .project-gallery {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  
-  .project-title h1 {
-    font-size: 28px;
-  }
-  
-  .nav-project {
-    padding: 20px;
-  }
-  
-  .nav-title {
-    font-size: 18px;
-  }
-}
-
-/* ANIMATIONS */
-.image-item,
-.project-card {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-.image-item:nth-child(1),
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.image-item:nth-child(2),
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.image-item:nth-child(3),
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.image-item:nth-child(4),
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-.image-item:nth-child(5),
-.project-card:nth-child(5) { animation-delay: 0.5s; }
-.image-item:nth-child(6),
-.project-card:nth-child(6) { animation-delay: 0.6s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Vishwas Aravind – Photography</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://file.myfontastic.com/RCHR7rbAhuk35c8fGZrmSo/icons.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" title="Home" class="nav-link on">Home</a>
+        <a href="aboutme.html" title="About Me" class="nav-link">About</a>
+        <a href="contact.html" title="Contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="home-gallery">
+        <article class="project-card" onclick="createComingSoonAlert('Formula Student')">
+          <div class="project-image">
+            <img src="images/CAR_4773.jpg" alt="Formula Student Project" />
+          </div>
+          <div class="project-info">
+            <h3>Formula Student</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Automotive')">
+          <div class="project-image">
+            <img src="images/CAR_4321.jpg" alt="Automotive Project" />
+          </div>
+          <div class="project-info">
+            <h3>Automotive</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Urban Geometry')">
+          <div class="project-image">
+            <img src="images/BUD11.jpg" alt="Urban Geometry Project" />
+          </div>
+          <div class="project-info">
+            <h3>Urban Geometry</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Light & Shadow')">
+          <div class="project-image">
+            <img src="images/VA-02-011.jpg" alt="Light and Shadow Project" />
+          </div>
+          <div class="project-info">
+            <h3>Light & Shadow</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Landscapes')">
+          <div class="project-image">
+            <img src="images/CAR_4383.jpg" alt="Landscapes Project" />
+          </div>
+          <div class="project-info">
+            <h3>Landscapes</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Campaigns')">
+          <div class="project-image">
+            <img src="images/CAR_4368.jpg" alt="Campaigns Project" />
+          </div>
+          <div class="project-info">
+            <h3>Campaigns</h3>
+          </div>
+        </article>
+      </section> onclick="createComingSoonAlert('Formula Student')">
+          <div class="project-image">
+            <img src="images/CAR_4773.jpg" alt="Formula Student Project" />
+          </div>
+          <div class="project-info">
+            <h3>Formula Student</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Automotive')">
+          <div class="project-image">
+            <img src="images/CAR_4321.jpg" alt="Automotive Project" />
+          </div>
+          <div class="project-info">
+            <h3>Automotive</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="openProject('Urban Geometry')">
+          <div class="project-image">
+            <img src="images/BUD11.jpg" alt="Urban Geometry Project" />
+          </div>
+          <div class="project-info">
+            <h3>Urban Geometry</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Light & Shadow')">
+          <div class="project-image">
+            <img src="images/VA-02-011.jpg" alt="Light and Shadow Project" />
+          </div>
+          <div class="project-info">
+            <h3>Light & Shadow</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Campaigns')">
+          <div class="project-image">
+            <img src="images/CAR_4368.jpg" alt="Campaigns Project" />
+          </div>
+          <div class="project-info">
+            <h3>Campaigns</h3>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="createComingSoonAlert('Street Stories')">
+          <div class="project-image">
+            <img src="images/CAR_4383.jpg" alt="Street Stories Project" />
+          </div>
+          <div class="project-info">
+            <h3>Street Stories</h3>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://instagram.com/lordfarquaadsmom" target="_blank">Instagram</a>
+          <a href="mailto:vishwasaravind07@gmail.com">Email</a>
+        </div>
+        <p>&copy; 2025 Vishwas Aravind. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Project opening function
+      function openProject(projectName) {
+        const projectUrls = {
+          'Automotive': 'motorsports.html',
+          'Urban Geometry': 'urban-geometry.html'
+        };
+        
+        const projectUrl = projectUrls[projectName];
+        
+        if (projectUrl) {
+          // Debug: Let's see what we're trying to open
+          console.log('Trying to open:', projectUrl);
+          // Navigate to project page
+          window.location.href = projectUrl;
+        } else {
+          console.log('No URL found for project:', projectName);
+          createComingSoonAlert(projectName);
+        }
+      }
+
+      function createComingSoonAlert(projectName) {
+        alert('The "' + projectName + '" project page is coming soon! Currently working on creating individual project galleries.');
+      }
+    </script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
