@@ -191,11 +191,10 @@ main {
   letter-spacing: 1px;
 }
 
-/* BALANCED PROJECT GALLERY LAYOUT (inspired by Amy Shore Photography) */
+/* TRUE MASONRY PROJECT GALLERY LAYOUT */
 .project-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  column-count: 4;
+  column-gap: 16px;
   max-width: 1200px;
   margin: 0 auto 100px;
 }
@@ -207,35 +206,32 @@ main {
   cursor: pointer;
   transition: transform 0.3s ease;
   margin-bottom: 16px;
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
 }
 
 .project-gallery .image-item:hover {
   transform: translateY(-3px);
 }
 
-/* More natural aspect ratios for better flow */
-.project-gallery .image-item.portrait {
-  aspect-ratio: 3/4; /* Classic portrait ratio */
+/* Natural aspect ratios - images maintain their original proportions */
+.project-gallery .image-item.portrait img {
+  aspect-ratio: 3/4;
 }
 
-.project-gallery .image-item.landscape {
-  aspect-ratio: 3/2; /* Balanced landscape ratio */
+.project-gallery .image-item.landscape img {
+  aspect-ratio: 3/2;
 }
 
-.project-gallery .image-item.square {
-  aspect-ratio: 1/1; /* Perfect square */
-}
-
-/* Some images can span 2 columns for variety */
-.project-gallery .image-item.wide {
-  grid-column: span 2;
-  aspect-ratio: 5/2; /* Wide panoramic */
+.project-gallery .image-item.square img {
+  aspect-ratio: 1/1;
 }
 
 /* Image styling */
 .project-gallery .image-item img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
   transition: transform 0.5s ease;
@@ -565,12 +561,16 @@ footer p {
   right: -80px;
 }
 
-/* RESPONSIVE DESIGN - BALANCED GRID */
+/* RESPONSIVE DESIGN - MASONRY COLUMNS */
 @media (max-width: 1200px) {
   .project-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 14px;
+    column-count: 3;
+    column-gap: 14px;
     max-width: 1000px;
+  }
+  
+  .project-gallery .image-item {
+    margin-bottom: 14px;
   }
 }
 
@@ -581,15 +581,13 @@ footer p {
   }
   
   .project-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 12px;
+    column-count: 3;
+    column-gap: 12px;
     max-width: 800px;
   }
   
-  /* Disable wide spanning on smaller screens */
-  .project-gallery .image-item.wide {
-    grid-column: span 1;
-    aspect-ratio: 3/2;
+  .project-gallery .image-item {
+    margin-bottom: 12px;
   }
 }
 
@@ -642,33 +640,15 @@ footer p {
     font-size: 16px;
   }
   
-  /* BALANCED GRID - TABLET */
+  /* MASONRY COLUMNS - TABLET */
   .project-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    column-count: 2;
+    column-gap: 10px;
     max-width: 100%;
   }
   
   .project-gallery .image-item {
     margin-bottom: 10px;
-  }
-  
-  /* All images become more uniform on tablet */
-  .project-gallery .image-item.portrait {
-    aspect-ratio: 4/5;
-  }
-  
-  .project-gallery .image-item.landscape {
-    aspect-ratio: 4/3;
-  }
-  
-  .project-gallery .image-item.square {
-    aspect-ratio: 1/1;
-  }
-  
-  .project-gallery .image-item.wide {
-    grid-column: span 2;
-    aspect-ratio: 2/1;
   }
   
   .project-description {
@@ -720,31 +700,13 @@ footer p {
   
   /* SINGLE COLUMN ON MOBILE */
   .project-gallery {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    column-count: 1;
+    column-gap: 0;
     max-width: 100%;
   }
   
   .project-gallery .image-item {
     margin-bottom: 8px;
-  }
-  
-  /* More consistent mobile sizing */
-  .project-gallery .image-item.portrait {
-    aspect-ratio: 3/4;
-  }
-  
-  .project-gallery .image-item.landscape {
-    aspect-ratio: 4/3;
-  }
-  
-  .project-gallery .image-item.square {
-    aspect-ratio: 1/1;
-  }
-  
-  .project-gallery .image-item.wide {
-    grid-column: span 1;
-    aspect-ratio: 3/2;
   }
 }
 
