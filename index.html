@@ -36,21 +36,21 @@
           </div>
         </article>
 
+        <article class="project-card" onclick="openProject('Landscapes')">
+          <div class="project-image">
+            <img src="images/CAR_4383.jpg" alt="Landscapes Project" />
+          </div>
+          <div class="project-info">
+            <h3>Landscapes</h3>
+          </div>
+        </article>
+
         <article class="project-card" onclick="createComingSoonAlert('Light & Shadow')">
           <div class="project-image">
             <img src="images/VA-02-011.jpg" alt="Light and Shadow Project" />
           </div>
           <div class="project-info">
             <h3>Light & Shadow</h3>
-          </div>
-        </article>
-
-        <article class="project-card" onclick="createComingSoonAlert('Landscapes')">
-          <div class="project-image">
-            <img src="images/CAR_4383.jpg" alt="Landscapes Project" />
-          </div>
-          <div class="project-info">
-            <h3>Landscapes</h3>
           </div>
         </article>
 
@@ -80,7 +80,8 @@
       function openProject(projectName) {
         const projectUrls = {
           'Formula Student': 'formulastudent.html',
-          'Urban Geometry': 'urban-geometry.html'
+          'Urban Geometry': 'urban-geometry.html',
+          'Landscapes': 'Landscapes.html'
         };
         
         const projectUrl = projectUrls[projectName];
